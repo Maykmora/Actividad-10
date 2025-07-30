@@ -21,7 +21,7 @@ for i in range(cantidad):
 
     while True:
         stock=int(input("Ingrese la cantidad en stock:"))
-        if price>0:
+        if stock>0:
             break
         else:
             print("El stock debe ser mayor que 0, intente de nuevo.")
@@ -37,7 +37,7 @@ for i in range(cantidad):
 print("\n--LISTA DE PRODUCTOS--")
 contador=1
 for code,datos in productos.items():
-    print(f"Producto No.{contador}")
+    print(f"\nProducto No.{contador}")
     print(f"\nCodigo: {code}")
     print(f"Nombre: {datos["nombre"]}")
     print(f"Categoria: {datos["categoria"]}")
@@ -45,3 +45,27 @@ for code,datos in productos.items():
     print(f"Precio: {datos["precio"]}")
     print(f"Stock: {datos["stock"]}")
     contador+=1
+
+print("\n--BÚSQUEDA--")
+search=input("Ingrese el código del producto que desea buscar: ")
+if search in productos:
+    print(f"Nombre: {productos[search]["nombre"]}")
+    print(f"Categoria: {productos[search]["categoria"]}")
+    print(f"Talla: {productos[search]["talla"]}")
+    print(f"Precio: {productos[search]["precio"]}")
+    print(f"Stock: {productos[search]["stock"]}")
+else:
+    print("Código no encontrado en el sistema")
+
+print("\n--PRECIO INVENTARIO--")
+suma=0
+for code, datos in productos.items():
+    i=datos["precio"]
+    j=datos["stock"]
+    total1=i*j
+    suma+=total1
+    print(f"{code}: Q.{i} X {j}= Q.{total1}")
+
+print(f"\nEl precio total del inventario es Q.{suma}")
+
+print("\n--PRODUCTOS POR CATEGORIA--")
