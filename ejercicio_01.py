@@ -34,4 +34,14 @@ for i in range(cantidad):
         "stock":stock
     }
 
-print(productos)
+print("\n--LISTA DE PRODUCTOS--")
+contador=1
+for code,datos in productos.items():
+    print(f"Producto No.{contador}")
+    print(f"\nCodigo: {code}")
+    print(f"Nombre: {datos["nombre"]}")
+    print(f"Categoria: {datos["categoria"]}")
+    print(f"Talla: {datos["talla"]}")
+    print(f"Precio: {datos["precio"]}")
+    print(f"Stock: {datos["stock"]}")
+    contador+=1
