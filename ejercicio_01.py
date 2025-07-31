@@ -47,15 +47,17 @@ for code,datos in productos.items():
     contador+=1
 
 print("\n--BÚSQUEDA--")
-search=input("Ingrese el código del producto que desea buscar: ")
-if search in productos:
-    print(f"Nombre: {productos[search]["nombre"]}")
-    print(f"Categoria: {productos[search]["categoria"]}")
-    print(f"Talla: {productos[search]["talla"]}")
-    print(f"Precio: {productos[search]["precio"]}")
-    print(f"Stock: {productos[search]["stock"]}")
-else:
-    print("Código no encontrado en el sistema")
+while True:
+    search=input("Ingrese el código del producto que desea buscar: ")
+    if search in productos:
+        print(f"Nombre: {productos[search]["nombre"]}")
+        print(f"Categoria: {productos[search]["categoria"]}")
+        print(f"Talla: {productos[search]["talla"]}")
+        print(f"Precio: {productos[search]["precio"]}")
+        print(f"Stock: {productos[search]["stock"]}")
+        break
+    else:
+        print("Código no encontrado en el sistema, inténtelo de nuevo")
 
 print("\n--PRECIO INVENTARIO--")
 suma=0
@@ -69,3 +71,14 @@ for code, datos in productos.items():
 print(f"\nEl precio total del inventario es Q.{suma}")
 
 print("\n--PRODUCTOS POR CATEGORIA--")
+categorias = {}
+
+for datos in productos.values():
+    categoria = datos["categoria"]
+    if categoria in categorias:
+        categorias[categoria] += 1
+    else:
+        categorias[categoria] = 1
+
+for cat, cantidad in categorias.items():
+    print(f"{cat}: {cantidad}")
